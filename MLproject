@@ -1,0 +1,13 @@
+name: tutorial
+
+docker_env:
+  image: mlprojimg
+  volumes: ["./:./"]
+entry_points:
+  main:
+    parameters:
+      learningrate: {type: float, default: 0.001}
+      batchsize: {type: int, default: 32}
+      lstmunits: {type: int, default: 32}
+      epochs: {type: int, default: 5}
+    command: "python imdb.py --learningrate {learningrate} --batchsize {batchsize} --lstmunits {lstmunits} --epochs {epochs}"
